@@ -1,0 +1,34 @@
+{
+  "entity": {
+    "sensor": {
+      "jobs_running": { "default": "mdi:progress-clock" },
+      "jobs_queued": { "default": "mdi:tray-full" },
+      "current_job": { "default": "mdi:cog-play-outline" },
+      "current_job_progress": { "default": "mdi:percent-circle-outline" },
+      "project": { "default": "mdi:folder-open-outline" },
+      "project_spend": { "default": "mdi:cash-multiple" },
+      "open_review_comments": { "default": "mdi:comment-alert-outline" },
+      "sites": { "default": "mdi:web" },
+      "games": { "default": "mdi:gamepad-variant-outline" },
+      "version": { "default": "mdi:tag-outline" }
+    },
+    "binary_sensor": {
+      "needs_answer": { "default": "mdi:comment-question-outline" }
+    },
+    "button": {
+      "cancel_running_jobs": { "default": "mdi:stop-circle-outline" },
+      "retry_last_failed_job": { "default": "mdi:restart" }
+    },
+    "image": {
+      "latest_media": { "default": "mdi:image-outline" }
+    },
+    "event": {
+      "job": { "default": "mdi:bell-ring-outline" }
+    }
+  },
+  "services": {
+    "cancel_job": { "service": "mdi:stop-circle-outline" },
+    "retry_job": { "service": "mdi:restart" },
+    "get_site_url": { "service": "mdi:link-variant" }
+  }
+}

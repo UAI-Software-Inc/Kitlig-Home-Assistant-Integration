@@ -1,0 +1,155 @@
+{
+  "config": {
+    "flow_title": "{name}",
+    "step": {
+      "user": {
+        "title": "Add a Kitlig instance",
+        "description": "In Kitlig, open Settings, MCP Server and turn on the server, Listen on network and Phone companion. A Docker or headless Kitlig has these on already.",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "password": "Password"
+        },
+        "data_description": {
+          "host": "The computer running Kitlig, by name or IP address.",
+          "port": "Kitlig's server port. 8420 unless you changed it.",
+          "password": "The Kitlig Web password, or the MCP token shown in Kitlig's settings. It is used once to sign in and is not stored."
+        }
+      },
+      "discovery_confirm": {
+        "title": "Kitlig found: {name}",
+        "description": "Sign in to the Kitlig at {host} to add it.",
+        "data": {
+          "password": "Password"
+        },
+        "data_description": {
+          "password": "The Kitlig Web password, or the MCP token shown in Kitlig's settings. It is used once to sign in and is not stored."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Sign in to {name} again",
+        "description": "Kitlig no longer accepts this Home Assistant's sign-in. It may have been removed from Kitlig's device list.",
+        "data": {
+          "password": "Password"
+        }
+      },
+      "reconfigure": {
+        "title": "Change the address",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not reach Kitlig at that address. Check that Kitlig is running and that Listen on network is on.",
+      "invalid_auth": "Kitlig did not accept that password.",
+      "web_off": "Kitlig answered, but Phone companion is off. Turn it on in Kitlig's Settings, MCP Server.",
+      "device_cap": "This Kitlig already has its maximum of 10 signed-in devices. Remove one in Kitlig's Settings, MCP Server, Devices, then try again.",
+      "rate_limited": "Too many sign-in attempts. Wait a minute and try again.",
+      "wrong_instance": "That address belongs to a different Kitlig instance.",
+      "unknown": "Something went wrong signing in."
+    },
+    "abort": {
+      "already_configured": "This Kitlig instance is already added.",
+      "reauth_successful": "Signed in again.",
+      "reconfigure_successful": "Address updated."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "scan_interval": "Check every (seconds)",
+          "browser_url": "Address browsers should use"
+        },
+        "data_description": {
+          "scan_interval": "Changes arrive live; this check is the safety net.",
+          "browser_url": "Only needed when your browser reaches this Kitlig at a different address than Home Assistant does, for example https://kitlig.example.com. Used for site and game links."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "jobs_running": { "name": "Jobs running" },
+      "jobs_queued": { "name": "Jobs queued" },
+      "current_job": { "name": "Current job" },
+      "current_job_progress": { "name": "Current job progress" },
+      "project": { "name": "Open project" },
+      "project_spend": { "name": "Project spend" },
+      "open_review_comments": { "name": "Open review comments" },
+      "sites": { "name": "Sites" },
+      "games": { "name": "Games" },
+      "version": { "name": "Version" }
+    },
+    "binary_sensor": {
+      "connected": { "name": "Connected" },
+      "working": { "name": "Working" },
+      "needs_answer": { "name": "Needs answer" }
+    },
+    "button": {
+      "cancel_running_jobs": { "name": "Cancel running jobs" },
+      "retry_last_failed_job": { "name": "Retry last failed job" }
+    },
+    "image": {
+      "latest_media": { "name": "Latest media" }
+    },
+    "event": {
+      "job": {
+        "name": "Job",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "finished": "Finished",
+              "failed": "Failed",
+              "cancelled": "Cancelled",
+              "needs_answer": "Needs answer"
+            }
+          }
+        }
+      }
+    }
+  },
+  "device_automation": {
+    "trigger_type": {
+      "finished": "A job finished",
+      "failed": "A job failed",
+      "cancelled": "A job was cancelled",
+      "needs_answer": "A job needs an answer"
+    }
+  },
+  "services": {
+    "cancel_job": {
+      "name": "Cancel job",
+      "description": "Stops a running or queued Kitlig job.",
+      "fields": {
+        "config_entry_id": { "name": "Instance", "description": "Which Kitlig. Can be left empty when only one is added." },
+        "job_id": { "name": "Job ID", "description": "The job to stop, from the Jobs running sensor's attributes or a job event." }
+      }
+    },
+    "retry_job": {
+      "name": "Retry job",
+      "description": "Runs a failed or cancelled Kitlig job again with the same inputs.",
+      "fields": {
+        "config_entry_id": { "name": "Instance", "description": "Which Kitlig. Can be left empty when only one is added." },
+        "job_id": { "name": "Job ID", "description": "The job to run again." }
+      }
+    },
+    "get_site_url": {
+      "name": "Get site or game link",
+      "description": "Returns a link that opens a Kitlig site or game in a browser. The link works for 12 hours.",
+      "fields": {
+        "config_entry_id": { "name": "Instance", "description": "Which Kitlig. Can be left empty when only one is added." },
+        "site_id": { "name": "Site ID", "description": "From the Sites or Games sensor's attributes." },
+        "page": { "name": "Page", "description": "A page file such as about.html, or index.html?scene=level2.json for a game scene. Opens the start page when empty." }
+      }
+    }
+  },
+  "exceptions": {
+    "no_instance": { "message": "That Kitlig instance is not connected." },
+    "instance_required": { "message": "More than one Kitlig is added. Say which one." },
+    "no_failed_job": { "message": "There is no failed job to run again." }
+  }
+}

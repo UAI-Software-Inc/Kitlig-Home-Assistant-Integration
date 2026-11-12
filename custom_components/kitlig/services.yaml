@@ -1,0 +1,43 @@
+cancel_job:
+  fields:
+    config_entry_id:
+      required: false
+      selector:
+        config_entry:
+          integration: kitlig
+    job_id:
+      required: true
+      example: job_01JABCDEFGHJKMNPQRSTVWXYZ0
+      selector:
+        text:
+
+retry_job:
+  fields:
+    config_entry_id:
+      required: false
+      selector:
+        config_entry:
+          integration: kitlig
+    job_id:
+      required: true
+      example: job_01JABCDEFGHJKMNPQRSTVWXYZ0
+      selector:
+        text:
+
+get_site_url:
+  fields:
+    config_entry_id:
+      required: false
+      selector:
+        config_entry:
+          integration: kitlig
+    site_id:
+      required: true
+      example: site_01JABCDEFGHJKMNPQRSTVWXYZ0
+      selector:
+        text:
+    page:
+      required: false
+      example: index.html
+      selector:
+        text:

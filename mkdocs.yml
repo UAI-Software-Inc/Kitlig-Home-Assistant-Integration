@@ -1,0 +1,74 @@
+site_name: Kitlig for Home Assistant
+site_description: Watch your Kitlig instances from Home Assistant. Jobs, media, exports, reviews, spend, sites and games.
+site_url: https://uai-software-inc.github.io/Kitlig-Home-Assistant-Integration/
+repo_url: https://github.com/UAI-Software-Inc/Kitlig-Home-Assistant-Integration
+repo_name: UAI-Software-Inc/Kitlig-Home-Assistant-Integration
+edit_uri: edit/main/docs/
+docs_dir: docs
+
+theme:
+  name: material
+  logo: assets/kitlig-icon.png
+  favicon: assets/kitlig-icon.png
+  font:
+    text: Inter
+    code: JetBrains Mono
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+    - toc.follow
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.keys
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting started:
+      - Install: getting-started/install.md
+      - Prepare Kitlig: getting-started/prepare-kitlig.md
+      - Add an instance: getting-started/add-instance.md
+  - Using it:
+      - Entities: usage/entities.md
+      - Media and exports: usage/media.md
+      - Sites and games card: usage/card.md
+      - Automations: usage/automations.md
+      - Several instances: usage/several-instances.md
+  - Reference:
+      - Events: reference/events.md
+      - Actions: reference/actions.md
+      - Options: reference/options.md
+  - Troubleshooting: troubleshooting.md
+  - Development: development.md

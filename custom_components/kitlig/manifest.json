@@ -1,0 +1,25 @@
+{
+  "domain": "kitlig",
+  "name": "Kitlig",
+  "after_dependencies": [
+    "frontend"
+  ],
+  "codeowners": [
+    "@UAI-Software-Inc"
+  ],
+  "config_flow": true,
+  "dependencies": [
+    "http",
+    "websocket_api",
+    "media_source"
+  ],
+  "documentation": "https://github.com/UAI-Software-Inc/Kitlig-Home-Assistant-Integration",
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/UAI-Software-Inc/Kitlig-Home-Assistant-Integration/issues",
+  "requirements": [],
+  "version": "0.1.0",
+  "zeroconf": [
+    "_kitlig._tcp.local."
+  ]
+}

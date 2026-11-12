@@ -1,0 +1,31 @@
+/* Kitlig's yellow and black, from the logo. */
+:root,
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #15130f;
+  --md-primary-fg-color--light: #2a2720;
+  --md-primary-fg-color--dark: #000000;
+  --md-primary-bg-color: #ffffff;
+  --md-accent-fg-color: #b58900;
+  --md-typeset-a-color: #8a6a00;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #15130f;
+  --md-primary-bg-color: #ffffff;
+  --md-accent-fg-color: #f4c218;
+  --md-typeset-a-color: #f4c218;
+  --md-default-bg-color: #16151a;
+}
+
+.md-header__button.md-logo img {
+  height: 1.6rem;
+  width: auto;
+}
+
+.md-typeset table:not([class]) {
+  font-size: 0.74rem;
+}
+
+.md-typeset table:not([class]) th {
+  white-space: nowrap;
+}
