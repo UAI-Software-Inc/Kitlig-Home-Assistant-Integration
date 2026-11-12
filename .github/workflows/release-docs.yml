@@ -32,7 +32,8 @@ jobs:
           path: site
 
   deploy:
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    # The repository's default branch, so a rename never stops the deploy.
+    if: github.ref_name == github.event.repository.default_branch && github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
     permissions:

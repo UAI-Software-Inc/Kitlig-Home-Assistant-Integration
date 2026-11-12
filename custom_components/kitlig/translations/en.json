@@ -66,7 +66,7 @@
         },
         "data_description": {
           "scan_interval": "Changes arrive live; this check is the safety net.",
-          "browser_url": "Only needed when your browser reaches this Kitlig at a different address than Home Assistant does, for example https://kitlig.example.com. Used for site and game links."
+          "browser_url": "Only needed when your browser reaches this Kitlig at a different address than Home Assistant does, such as a public address behind a reverse proxy. Enter the full address, starting with http or https. Used for site and game links."
         }
       }
     }
